@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nabil — Identity | Interactive Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+    
+    <!-- Link strictly to the new stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Cinematic Noise Overlay -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Navigation Overlay -->
+    <nav class="profile-nav">
+        <a href="index.html" class="back-link">← Return to Nexus</a>
+        <span class="nav-id">01 / NETWORK ARCHITECT</span>
+    </nav>
+
+    <main class="smooth-scroll-container">
+        
+        <!-- 1. Intro Hero -->
+        <section class="fullscreen-section hero-section">
+            <div class="ambient-gradient hero-glow"></div>
+            <div class="hero-content">
+                <p class="hero-mono fade-up">IDENTITY 01</p>
+                <h1 class="hero-title fade-up" style="--delay: 0.1s">Nabil.</h1>
+                <p class="hero-subtitle fade-up" style="--delay: 0.2s">Architecting the invisible.</p>
+            </div>
+            <div class="scroll-indicator fade-up" style="--delay: 0.5s">
+                <div class="mouse-icon">
+                    <div class="wheel"></div>
+                </div>
+                <span>Descend</span>
+            </div>
+        </section>
+
+        <!-- 2. About Me -->
+        <section class="fullscreen-section story-section">
+            <div class="story-container">
+                <h2 class="story-text text-reveal">
+                    I find beauty in the physical and logical lines that connect us. From the raw glass of <span class="highlight">fiber optic</span> strands to the structured logic of <span class="highlight">VLANs</span> and <span class="highlight">DHCP</span> allocations, I build the nervous system of the digital world.
+                </h2>
+            </div>
+        </section>
+
+        <!-- 3. Skills (Cinematic Lines) -->
+        <section class="fullscreen-section skills-section">
+            <div class="skills-container">
+                <p class="section-label">CAPABILITIES</p>
+                
+                <div class="skill-row">
+                    <div class="skill-info">
+                        <span class="skill-name">Physical Infrastructure (Fiber Optics)</span>
+                        <span class="skill-pct">94%</span>
+                    </div>
+                    <div class="skill-track"><div class="skill-fill" data-target="94%"></div></div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-info">
+                        <span class="skill-name">Logical Architecture (VLANs)</span>
+                        <span class="skill-pct">88%</span>
+                    </div>
+                    <div class="skill-track"><div class="skill-fill" data-target="88%"></div></div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-info">
+                        <span class="skill-name">Dynamic Protocol Routing (DHCP)</span>
+                        <span class="skill-pct">92%</span>
+                    </div>
+                    <div class="skill-track"><div class="skill-fill" data-target="92%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Favorite Song -->
+        <section class="fullscreen-section song-section">
+            <div class="ambient-gradient song-glow"></div>
+            <div class="audio-player-container">
+                <!-- Replace src with actual audio file later -->
+                <audio id="bgm-audio" src="#"></audio>
+                
+                <div class="album-art glass-panel">
+                    <div class="vinyl-record"></div>
+                </div>
+                
+                <div class="song-details">
+                    <p class="section-label">CURRENT ROTATION</p>
+                    <h3 class="song-title">Resonance</h3>
+                    <p class="song-artist">HOME</p>
+                    
+                    <button class="play-btn" id="play-btn">
+                        <span class="play-icon">▶</span>
+                        <span class="pause-icon" style="display:none;">⏸</span>
+                        PLAY TRACK
+                    </button>
+
+                    <div class="waveform">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Lyrics Experience -->
+        <section class="fullscreen-section lyrics-section">
+            <div class="lyrics-container">
+                <p class="lyric-line">We are just pulses of light...</p>
+                <p class="lyric-line">Traveling through glass threads...</p>
+                <p class="lyric-line">Seeking a destination...</p>
+                <p class="lyric-line">In the vast dark network.</p>
+            </div>
+        </section>
+
+        <!-- 6. DVD Logo Easter Egg Section -->
+        <section class="fullscreen-section dvd-section" id="dvd-container">
+            <p class="section-label absolute-label">SYSTEM IDLE // EASTER EGG</p>
+            <div id="dvd-logo">NABIL</div>
+        </section>
+
+        <!-- 7. Favorite Quotes -->
+        <section class="fullscreen-section quote-section">
+            <h2 class="massive-quote">"Connectivity is not just a cable.<br>It is a lifeline."</h2>
+        </section>
+
+        <!-- 8. Gallery -->
+        <section class="fullscreen-section gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item glass-panel fade-up"><div class="img-placeholder">LOG 01 // SERVER RACK</div></div>
+                <div class="gallery-item glass-panel fade-up" style="--delay: 0.1s"><div class="img-placeholder">LOG 02 // SPLICING</div></div>
+                <div class="gallery-item glass-panel fade-up" style="--delay: 0.2s"><div class="img-placeholder">LOG 03 // TOPOLOGY</div></div>
+            </div>
+        </section>
+
+        <!-- 9. Contact -->
+        <section class="fullscreen-section contact-section">
+            <div class="contact-content">
+                <h2 class="hero-title">Initiate Ping.</h2>
+                <a href="mailto:clarineviolet@gmail.com" class="magnetic-btn">cupcakeFreak@group.my.id</a>
+                <div class="footer-bottom">
+                    <p class="hero-mono">© 2026 Interactive Portfolio</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="java script/script.js"></script>
+</body>
+</html>
