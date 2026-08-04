@@ -660,3 +660,13 @@ body {
     opacity: 0.4;
     transition: opacity 0.2s ease;
 }
+/* Fix: hero heading overlap dengan fixed nav di mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-top: 140px;
+        padding-bottom: 60px;
+    }
+}
