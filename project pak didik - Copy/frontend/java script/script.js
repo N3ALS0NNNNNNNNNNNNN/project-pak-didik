@@ -39,9 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 2. AMBIENT MOTION — teks raksasa "cupcake" sekarang gerak halus terus-menerus
-    //    (idle float) DAN ikut posisi scroll. Sebelumnya cuma jalan pas mouse gerak
-    //    (jadi mati total di HP). Sekarang jalan di semua device.
+    // 2. AMBIENT MOTION — teks raksasa (background)
     const bgText = document.querySelector(".parallax-bg");
     let mouseX = 0, mouseY = 0;
     let scrollY = window.scrollY;
@@ -60,10 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (bgText && !prefersReducedMotion) {
         const renderBgText = (time) => {
             const t = time / 1000;
-            // idle float halus, jalan terus walau ga ada input sama sekali
+            // idle float halus,
             const floatX = Math.sin(t * 0.4) * (isMobile ? 14 : 8);
             const floatY = Math.cos(t * 0.3) * (isMobile ? 12 : 8);
-            // parallax ikut posisi scroll -> makanya "hidup" lagi pas discroll naik/turun
+            // parallax ikut posisi scroll 
             const scrollShift = scrollY * 0.08;
 
             bgText.style.transform = `translate(-50%, -50%) translate(${mouseX + floatX}px, ${mouseY + floatY - scrollShift}px)`;
@@ -72,8 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(renderBgText);
     }
 
-    // 3. EFEK 3D TILT — Desktop pakai mouse, Mobile pakai sentuhan (touch).
-    //    Sebelumnya tilt di-skip total di HP, sekarang ada versi sentuhnya.
+    // 3. EFEK 3D TILT — 
     if (!prefersReducedMotion) {
         const tiltElements = document.querySelectorAll(".tilt-element");
 
@@ -101,8 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.addEventListener("mousemove", (e) => applyTilt(card, e.clientX, e.clientY));
                 card.addEventListener("mouseleave", () => resetTilt(card));
             } else {
-                // Di HP ga ada hover, jadi "hover state" (glow, warna nomor, dll)
-                // disamain lewat sentuhan pakai class .is-touched
+                
                 card.addEventListener("touchstart", () => {
                     card.classList.add("is-touched");
                 }, { passive: true });
@@ -120,9 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. ANIMASI SCROLL REVEAL — sekarang toggle nyala/mati tiap kali elemen
-    //    keluar-masuk viewport. Jalan pas discroll ke BAWAH maupun ke ATAS,
-    //    jadi ga cuma muncul sekali doang pas awal buka web.
+    // 4. ANIMASI SCROLL REVEAL — 
     const revealElements = document.querySelectorAll(".reveal-text, .reveal-fade, .reveal-card");
 
     const revealObserver = new IntersectionObserver((entries) => {
