@@ -122,6 +122,8 @@ body {
     z-index: -1;
     white-space: nowrap;
     user-select: none;
+    /* transform-nya digerakkan tiap frame lewat JS (idle float + parallax scroll) */
+    will-change: transform;
 }
 
 .hero-content {
@@ -235,9 +237,12 @@ body {
     text-decoration: none;
     color: var(--text-white);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
 }
 
-.holo-card:hover {
+/* .is-touched = dipakai lewat JS pas HP disentuh, biar efeknya sama kayak :hover di desktop */
+.holo-card:hover,
+.holo-card.is-touched {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(138, 43, 226, 0.2);
     border-color: rgba(255, 255, 255, 0.2);
 }
@@ -252,7 +257,8 @@ body {
     transition: color 0.4s;
 }
 
-.holo-card:hover .member-num { color: var(--cyan-glow); }
+.holo-card:hover .member-num,
+.holo-card.is-touched .member-num { color: var(--cyan-glow); }
 
 .member-name { font-size: 1.8rem; margin-bottom: 0.5rem; }
 .member-role {
@@ -262,20 +268,30 @@ body {
     transition: 0.3s;
 }
 
-.holo-card:hover .member-role { color: var(--text-white); transform: translateX(10px); }
+.holo-card:hover .member-role,
+.holo-card.is-touched .member-role { color: var(--text-white); transform: translateX(10px); }
+
+/* Stagger delay biar card muncul bergelombang tiap kali di-scroll (jalan dua arah) */
+.team-grid .holo-card:nth-child(1) { transition-delay: 0s; }
+.team-grid .holo-card:nth-child(2) { transition-delay: 0.08s; }
+.team-grid .holo-card:nth-child(3) { transition-delay: 0.16s; }
+.team-grid .holo-card:nth-child(4) { transition-delay: 0.24s; }
+.team-grid .holo-card:nth-child(5) { transition-delay: 0.32s; }
+.team-grid .holo-card:nth-child(6) { transition-delay: 0.4s; }
+.team-grid .holo-card:nth-child(7) { transition-delay: 0.48s; }
 
 /* ==========================================================================
    SCROLL ANIMATIONS (Di-trigger oleh JS)
    ========================================================================== */
 .reveal-text, .reveal-fade, .reveal-card {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(40px) scale(0.98);
     transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 /* ==========================================================================
@@ -310,4 +326,16 @@ body {
     
     /* Kurangi tinggi card di mobile */
     .holo-card { height: 320px; }
+}
+
+/* ==========================================================================
+   AKSESIBILITAS: hormati preferensi "reduced motion" user
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .reveal-text, .reveal-fade, .reveal-card {
+        transition: opacity 0.3s ease;
+        transform: none;
+    }
+    .ambient-glow { animation: none; }
+    .holo-card { transition: box-shadow 0.3s ease; }
 }
